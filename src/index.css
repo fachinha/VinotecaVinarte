@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bordeaux-950: #1b0910;
+  --color-bordeaux-900: #29151C;
+  --color-bordeaux-800: #381923;
+  --color-bordeaux-700: #481B28;
+  --color-bordeaux-600: #5c2233;
+  --color-bordeaux-500: #742d42;
+
+  --color-night: #171513;
+  --color-night-darker: #0e0d0c;
+  --color-night-card: #201c1a;
+  --color-night-border: #2d2925;
+
+  --color-gold-300: #dbcca4;
+  --color-gold-400: #c9af7e;
+  --color-gold-500: #B79A68;
+  --color-gold-600: #9e8253;
+  --color-gold-700: #7f663c;
+
+  --color-cream: #F4EFE5;
+  --color-cream-muted: #e6dfd1;
+  --color-warm-white: #FCFAF6;
+  --color-warm-gray: #8C827A;
+  --color-warm-muted: #A3988F;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #171513;
+  color: #FCFAF6;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #171513;
+}
+::-webkit-scrollbar-thumb {
+  background: #381923;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B79A68;
+}
+
+/* Typography refinements */
+.font-editorial {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Glass backdrop utilities */
+.glass-panel {
+  background: rgba(23, 21, 19, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(244, 239, 229, 0.08);
+}
+
+.glass-bordeaux {
+  background: rgba(41, 21, 28, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(183, 154, 104, 0.2);
+}
+
+.card-luxury {
+  background: linear-gradient(145deg, rgba(32, 28, 26, 0.9) 0%, rgba(20, 18, 17, 0.96) 100%);
+  border: 1px solid rgba(183, 154, 104, 0.15);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-luxury:hover {
+  border-color: rgba(183, 154, 104, 0.45);
+  box-shadow: 0 20px 40px -15px rgba(72, 27, 40, 0.4);
+}
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FCFAF6 0%, #dbcca4 40%, #B79A68 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-wine-gradient {
+  background: linear-gradient(135deg, #F4EFE5 0%, #c9af7e 50%, #8C827A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Noise overlay */
+.bg-noise {
+  background-image: radial-gradient(rgba(183, 154, 104, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Wine cards appearance animations - slower and more cinematic */
+@keyframes wineAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(48px) scale(0.94);
+  }
+  60% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.wine-appear {
+  opacity: 0;
+  animation: wineAppear 1.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
