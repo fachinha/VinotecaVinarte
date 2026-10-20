@@ -67,33 +67,33 @@ export const App: React.FC = () => {
 
       {/* Main Content Layout */}
       <main id="main-content">
-        {/* Hero Section */}
+        {/* 1. Inicio / Hero */}
         <Hero onOpenAdvisor={() => setIsAdvisorOpen(true)} />
 
-        {/* Sobre Nosotros Section (Filosofía, Local Morales 438 y Pilares) */}
-        <AboutSection />
-
-        {/* 1. Wine Catalog & Explorer */}
+        {/* 2. Catálogo de Vinos */}
         <WineCatalog
           wines={wines}
           onSelectWine={(wine) => setSelectedWine(wine)}
         />
 
-        {/* 2. Featured Showcase with Virtual Sommelier */}
+        {/* 3. Vinos Destacados & Sommelier */}
         <WineHighlights
           wines={wines}
           onSelectWine={(wine) => setSelectedWine(wine)}
           onOpenAdvisor={() => setIsAdvisorOpen(true)}
         />
 
-        {/* Official Instagram Hub */}
-        <InstagramSection />
+        {/* 4. Nosotros (Filosofía, Local Morales 438 y Pilares) */}
+        <AboutSection />
 
-        {/* Location & Visit (Morales 438, Bariloche) */}
+        {/* 5. Ubicación (Morales 438, Bariloche) */}
         <LocationSection />
 
-        {/* Orders & Contact (Uber Eats & WhatsApp) */}
+        {/* 6. Contacto & Pedidos (Uber Eats & WhatsApp) */}
         <OrdersAndContactSection />
+
+        {/* Official Instagram Hub */}
+        <InstagramSection />
 
         {/* Google Reviews Invitation */}
         <GoogleReviewsSection />

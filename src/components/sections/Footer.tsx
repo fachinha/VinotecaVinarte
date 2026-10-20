@@ -148,11 +148,11 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-xs text-[#A3988F]">
               <li><a href="#inicio" className="hover:text-[#FCFAF6] transition-colors">Inicio</a></li>
-              <li><a href="#nosotros" className="hover:text-[#FCFAF6] transition-colors">Sobre Nosotros</a></li>
               <li><a href="#catalogo" className="hover:text-[#FCFAF6] transition-colors">Catálogo de Vinos</a></li>
               <li><a href="#destacados" className="hover:text-[#FCFAF6] transition-colors">Vinos Destacados</a></li>
-              <li><a href="#ubicacion" className="hover:text-[#FCFAF6] transition-colors">Encontranos</a></li>
-              <li><a href="#contacto" className="hover:text-[#FCFAF6] transition-colors">Pedidos & Contacto</a></li>
+              <li><a href="#nosotros" className="hover:text-[#FCFAF6] transition-colors">Nosotros</a></li>
+              <li><a href="#ubicacion" className="hover:text-[#FCFAF6] transition-colors">Ubicación</a></li>
+              <li><a href="#contacto" className="hover:text-[#FCFAF6] transition-colors">Contacto</a></li>
             </ul>
           </div>
 

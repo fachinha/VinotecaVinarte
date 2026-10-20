@@ -31,17 +31,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAdvisor }) => {
 
       {/* Content Container */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-        {/* Eyebrow / Tagline */}
+        {/* Eyebrow / Curaduría */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#B79A68]/30 bg-[#29151C]/70 text-[#B79A68] text-xs uppercase tracking-[0.22em] font-medium mb-6">
           <Wine className="w-3.5 h-3.5" />
-          <span>El arte del vino en cada copa!</span>
+          <span>Morales 438 • Bariloche</span>
         </div>
 
         {/* Headline Editorial */}
         <h1 className="font-editorial text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#FCFAF6] tracking-tight leading-[1.08] max-w-4xl">
-          Hay vinos que se <span className="italic font-light text-[#B79A68]">descubren</span>.
-          <br />
-          Y momentos que se <span className="italic font-light">recuerdan</span>.
+          El arte del vino <span className="italic font-light text-[#B79A68]">en cada copa!</span>
         </h1>
 
         {/* Slogan */}

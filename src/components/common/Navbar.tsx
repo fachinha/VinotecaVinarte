@@ -21,10 +21,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdvisor, onOpenAdmin }) =>
 
   const navLinks = [
     { label: 'Inicio', href: '#inicio' },
-    { label: 'Sobre Nosotros', href: '#nosotros' },
     { label: 'Catálogo', href: '#catalogo' },
     { label: 'Destacados', href: '#destacados' },
-    { label: 'Encontranos', href: '#ubicacion' },
+    { label: 'Nosotros', href: '#nosotros' },
+    { label: 'Ubicación', href: '#ubicacion' },
     { label: 'Contacto', href: '#contacto' },
   ];
 

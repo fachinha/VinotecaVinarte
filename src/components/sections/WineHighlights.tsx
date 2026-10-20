@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import type { Wine as WineType } from '../../types';
 import { DEMO_WINES } from '../../data/wines';
-import { Sparkles, MessageCircle, ShoppingBag } from 'lucide-react';
-import { getWineWhatsAppUrl, BUSINESS_CONFIG } from '../../data/config';
+import { Sparkles, ShoppingBag } from 'lucide-react';
+import { BUSINESS_CONFIG } from '../../data/config';
 
 interface WineHighlightsProps {
   onSelectWine: (wine: WineType) => void;
@@ -134,14 +134,14 @@ export const WineHighlights: React.FC<WineHighlightsProps> = ({
                     </button>
 
                     <a
-                      href={getWineWhatsAppUrl(wine.name, wine.winery)}
+                      href={BUSINESS_CONFIG.uberEatsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 bg-[#25D366] hover:bg-[#22c35e] text-white text-xs font-semibold px-3.5 py-2 rounded-full transition-colors shadow-md"
-                      title={`Consultar por ${wine.name} por WhatsApp`}
-                      aria-label={`Consultar disponibilidad de ${wine.name} por WhatsApp`}
+                      className="flex items-center gap-1.5 bg-[#B79A68] hover:bg-[#c9af7e] text-[#171513] text-xs font-semibold px-3.5 py-2 rounded-full transition-all shadow-md hover:-translate-y-0.5"
+                      title={`Pedir ${wine.name} en Uber Eats`}
+                      aria-label={`Pedir ${wine.name} en Uber Eats`}
                     >
-                      <MessageCircle className="w-3.5 h-3.5" />
+                      <ShoppingBag className="w-3.5 h-3.5" />
                       <span className="hidden sm:inline">Pedir</span>
                     </a>
                   </div>
