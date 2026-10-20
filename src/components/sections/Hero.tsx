@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, ShoppingBag, Sparkles, MapPin, Compass, Wine } from 'lucide-react';
+import { ArrowDown, ShoppingBag, Sparkles, MapPin, Compass } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../../data/config';
 
 interface HeroProps {
@@ -31,14 +31,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAdvisor }) => {
 
       {/* Content Container */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-        {/* Eyebrow / Curaduría */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#B79A68]/30 bg-[#29151C]/70 text-[#B79A68] text-xs uppercase tracking-[0.22em] font-medium mb-6">
-          <Wine className="w-3.5 h-3.5" />
-          <span>Morales 438 • Bariloche</span>
-        </div>
-
         {/* Headline Editorial */}
-        <h1 className="font-editorial text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#FCFAF6] tracking-tight leading-[1.08] max-w-4xl">
+        <h1 className="font-editorial text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#FCFAF6] tracking-tight leading-[1.08] max-w-4xl pt-4">
           El arte del vino <span className="italic font-light text-[#B79A68]">en cada copa!</span>
         </h1>
 
@@ -48,8 +42,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAdvisor }) => {
         </p>
 
         {/* Complementary Text */}
-        <p className="mt-3 text-sm sm:text-base text-[#F4EFE5]/80 max-w-2xl font-light leading-relaxed">
-          Un espacio en Morales 438 para explorar nuevos sabores, encontrar tus favoritos y disfrutar el vino a tu manera. Curaduría exclusiva en el corazón de Bariloche.
+        <p className="mt-4 text-sm sm:text-base text-[#F4EFE5]/80 max-w-2xl font-light leading-relaxed">
+          Un espacio para explorar nuevos sabores, encontrar tus favoritos y disfrutar el vino a tu manera. Curaduría exclusiva en San Carlos de Bariloche.
         </p>
 
         {/* Buttons / CTAs */}
@@ -87,7 +81,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAdvisor }) => {
         <div className="mt-14 pt-8 border-t border-white/10 w-full grid grid-cols-1 sm:grid-cols-3 gap-6 text-left sm:text-center text-xs text-[#A3988F]">
           <div className="flex items-center sm:justify-center gap-2.5">
             <MapPin className="w-4 h-4 text-[#B79A68] flex-shrink-0" />
-            <span>Morales 438, Bariloche</span>
+            <span>San Carlos de Bariloche</span>
           </div>
           <div className="flex items-center sm:justify-center gap-2.5">
             <span className="w-2 h-2 rounded-full bg-[#B79A68] flex-shrink-0" />
