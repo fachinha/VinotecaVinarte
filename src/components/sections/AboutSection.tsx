@@ -11,19 +11,6 @@ export const AboutSection: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#B79A68]/30 bg-[#29151C]/60 text-[#B79A68] text-xs uppercase tracking-[0.25em] font-medium mb-4">
-            <Wine className="w-3.5 h-3.5" />
-            Nuestra Casa • Morales 438
-          </span>
-          <h2 className="font-editorial text-3xl sm:text-5xl lg:text-6xl text-[#FCFAF6] font-normal tracking-tight leading-tight">
-            El arte del vino <span className="italic text-[#B79A68]">en cada copa</span>
-          </h2>
-          <p className="mt-4 text-lg sm:text-xl text-[#F4EFE5]/90 font-editorial italic tracking-wide">
-            “Tenemos el mejor vino del mundo, ¡EL QUE TE GUSTA A VOS!”
-          </p>
-        </div>
 
         {/* 2-Column Story & Photos */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
