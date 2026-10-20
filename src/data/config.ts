@@ -49,6 +49,8 @@ export const SISTER_STORES = [
     subtitle: 'Tentaciones Belgrano',
     whatsappUrl: 'https://wa.me/5492944509410',
     instagramUrl: 'https://www.instagram.com/tentacionesbelgrano?igsi=MWczeHk1MmN2M21teQ==',
+    uberEatsUrl: 'https://www.ubereats.com/ar/store/tentaciones/5IDS-fV4WMqzac1A-mH7ng?diningMode=DELIVERY&surfaceName=',
+    googleMapsUrl: 'https://maps.app.goo.gl/bU5CjLqwmyeeKugY6?g_st=aw',
     phoneDisplay: '+54 9 294 450-9410',
   },
 ] as const;

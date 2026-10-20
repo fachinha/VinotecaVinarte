@@ -14,7 +14,6 @@ import { WineHighlights } from './components/sections/WineHighlights';
 import { WineCatalog } from './components/sections/WineCatalog';
 import { InstagramSection } from './components/sections/InstagramSection';
 import { LocationSection } from './components/sections/LocationSection';
-import { OrdersAndContactSection } from './components/sections/OrdersAndContactSection';
 import { GoogleReviewsSection } from './components/sections/GoogleReviewsSection';
 import { Footer } from './components/sections/Footer';
 
@@ -88,9 +87,6 @@ export const App: React.FC = () => {
 
         {/* 5. Ubicación (Morales 438, Bariloche) */}
         <LocationSection />
-
-        {/* 6. Contacto & Pedidos (Uber Eats & WhatsApp) */}
-        <OrdersAndContactSection />
 
         {/* Official Instagram Hub */}
         <InstagramSection />

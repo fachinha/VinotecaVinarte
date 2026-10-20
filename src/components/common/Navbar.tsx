@@ -25,7 +25,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdvisor, onOpenAdmin }) =>
     { label: 'Destacados', href: '#destacados' },
     { label: 'Nosotros', href: '#nosotros' },
     { label: 'Ubicación', href: '#ubicacion' },
-    { label: 'Contacto', href: '#contacto' },
   ];
 
   return (

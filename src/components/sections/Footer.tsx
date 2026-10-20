@@ -123,6 +123,18 @@ export const Footer: React.FC = () => {
                         <span>Uber Eats</span>
                       </a>
                     )}
+                    {'googleMapsUrl' in store && store.googleMapsUrl && (
+                      <a
+                        href={store.googleMapsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#201c1a] hover:bg-[#29151C] text-[#FCFAF6] hover:text-[#B79A68] border border-white/10 hover:border-[#B79A68] text-[11px] font-medium transition-colors"
+                        title={`Cómo llegar a ${store.name}`}
+                      >
+                        <MapPin className="w-3 h-3 text-[#B79A68]" />
+                        <span>Maps</span>
+                      </a>
+                    )}
                     {'googleReviewsUrl' in store && store.googleReviewsUrl && (
                       <a
                         href={store.googleReviewsUrl}
@@ -152,7 +164,6 @@ export const Footer: React.FC = () => {
               <li><a href="#destacados" className="hover:text-[#FCFAF6] transition-colors">Vinos Destacados</a></li>
               <li><a href="#nosotros" className="hover:text-[#FCFAF6] transition-colors">Nosotros</a></li>
               <li><a href="#ubicacion" className="hover:text-[#FCFAF6] transition-colors">Ubicación</a></li>
-              <li><a href="#contacto" className="hover:text-[#FCFAF6] transition-colors">Contacto</a></li>
             </ul>
           </div>
 
