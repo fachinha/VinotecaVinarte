@@ -50,7 +50,7 @@ export const WineHighlights: React.FC<WineHighlightsProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div
-          className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ease-out ${
+          className={`text-center max-w-3xl mx-auto mb-10 transition-all duration-700 ease-out ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
@@ -61,10 +61,37 @@ export const WineHighlights: React.FC<WineHighlightsProps> = ({
           <h2 className="font-editorial text-4xl sm:text-5xl md:text-6xl text-[#FCFAF6] font-normal tracking-tight">
             Una invitación a descubrir
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#F4EFE5]/75 font-light">
-            Encontrá el vino ideal para cada ocasión. Etiquetas con identidad, terroir patagónico y carácter singular.
-          </p>
         </div>
+
+        {/* Sommelier Virtual Feature Card (al principio de destacados) */}
+        {onOpenAdvisor && (
+          <div
+            className={`mb-12 bg-gradient-to-r from-[#29151C] via-[#201c1a] to-[#29151C] p-7 sm:p-9 rounded-3xl border border-[#B79A68]/40 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden transition-all duration-700 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            <div className="max-w-xl text-center md:text-left">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-[#B79A68] font-semibold mb-2">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Asesoramiento Personalizado</span>
+              </div>
+              <h3 className="font-editorial text-2xl sm:text-3xl lg:text-4xl text-[#FCFAF6] font-normal tracking-tight">
+                ¿Buscás una recomendación para tu mesa?
+              </h3>
+              <p className="mt-2 text-sm text-[#F4EFE5]/75 leading-relaxed">
+                Utilizá nuestro Sommelier Virtual para encontrar la etiqueta perfecta según tu plato (asado, trucha patagónica, pastas, picada o celebración).
+              </p>
+            </div>
+
+            <button
+              onClick={onOpenAdvisor}
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#B79A68] hover:bg-[#c9af7e] text-[#171513] font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-xl hover:shadow-[#B79A68]/30 hover:-translate-y-0.5 whitespace-nowrap"
+            >
+              <Sparkles className="w-4 h-4" />
+              <span>Consultar Sommelier Virtual</span>
+            </button>
+          </div>
+        )}
 
         {/* Featured Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
@@ -150,36 +177,6 @@ export const WineHighlights: React.FC<WineHighlightsProps> = ({
             </div>
           ))}
         </div>
-
-        {/* Sommelier Virtual Feature Card */}
-        {onOpenAdvisor && (
-          <div
-            className={`mt-16 bg-gradient-to-r from-[#29151C] via-[#201c1a] to-[#29151C] p-8 sm:p-10 rounded-3xl border border-[#B79A68]/40 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden transition-all duration-700 delay-500 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-          >
-            <div className="max-w-xl text-center md:text-left">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-[#B79A68] font-semibold mb-2">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Asesoramiento Personalizado</span>
-              </div>
-              <h3 className="font-editorial text-3xl sm:text-4xl text-[#FCFAF6] font-normal tracking-tight">
-                ¿Buscás una recomendación para tu mesa?
-              </h3>
-              <p className="mt-2 text-sm text-[#F4EFE5]/75 leading-relaxed">
-                Utilizá nuestro Sommelier Virtual para encontrar la etiqueta perfecta según tu plato (asado, trucha patagónica, pastas, picada o celebración).
-              </p>
-            </div>
-
-            <button
-              onClick={onOpenAdvisor}
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#B79A68] hover:bg-[#c9af7e] text-[#171513] font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-xl hover:shadow-[#B79A68]/30 hover:-translate-y-0.5 whitespace-nowrap"
-            >
-              <Sparkles className="w-4 h-4" />
-              <span>Consultar Sommelier Virtual</span>
-            </button>
-          </div>
-        )}
 
         {/* Uber Eats Quick Access */}
         <div className="mt-12 text-center flex items-center justify-center">
