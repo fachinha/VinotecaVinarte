@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Wine, Menu, X, ShoppingBag, MessageCircle, MapPin } from 'lucide-react';
+import { Menu, X, ShoppingBag, MessageCircle, MapPin, User } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../../data/config';
 
 interface NavbarProps {
   onOpenAdvisor?: () => void;
+  onOpenAdmin?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenAdvisor }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenAdvisor, onOpenAdmin }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -20,6 +21,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdvisor }) => {
 
   const navLinks = [
     { label: 'Inicio', href: '#inicio' },
+    { label: 'Sobre Nosotros', href: '#nosotros' },
     { label: 'Catálogo', href: '#catalogo' },
     { label: 'Destacados', href: '#destacados' },
     { label: 'Encontranos', href: '#ubicacion' },
@@ -31,33 +33,27 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdvisor }) => {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isScrolled
-            ? 'glass-bordeaux py-3 shadow-2xl border-b border-[#B79A68]/20 backdrop-blur-md'
-            : 'bg-gradient-to-b from-[#171513]/90 via-[#171513]/50 to-transparent py-5'
+            ? 'glass-bordeaux py-2.5 shadow-2xl border-b border-[#B79A68]/20 backdrop-blur-md'
+            : 'bg-gradient-to-b from-[#171513]/90 via-[#171513]/50 to-transparent py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo Vinarte */}
+            {/* Logo Vinarte (Official image logo) */}
             <a
               href="#inicio"
-              className="group flex items-center gap-3 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B79A68]"
+              className="group flex items-center gap-2.5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B79A68]"
               aria-label="Vinarte Vinoteca - Volver al inicio"
             >
-              <div className="w-10 h-10 rounded-full border border-[#B79A68]/40 bg-[#29151C] flex items-center justify-center transition-transform duration-300 group-hover:scale-105 group-hover:border-[#B79A68]">
-                <Wine className="w-5 h-5 text-[#B79A68] transition-colors" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-editorial text-2xl tracking-[0.2em] font-semibold text-[#FCFAF6] group-hover:text-[#B79A68] transition-colors">
-                  VINARTE
-                </span>
-                <span className="text-[9px] uppercase tracking-[0.28em] text-[#B79A68]/90 font-medium -mt-1">
-                  Vinoteca • Bariloche
-                </span>
-              </div>
+              <img
+                src="/vinarte-logo.png"
+                alt="Vinarte Vinoteca"
+                className="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              />
             </a>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-7" aria-label="Navegación principal">
+            <nav className="hidden md:flex items-center gap-6 lg:gap-7" aria-label="Navegación principal">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -85,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdvisor }) => {
                 href={BUSINESS_CONFIG.uberEatsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider bg-[#B79A68] hover:bg-[#c9af7e] text-[#171513] px-4 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#B79A68]/20 transform hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider bg-[#B79A68] hover:bg-[#c9af7e] text-[#171513] px-4 py-2 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#B79A68]/20 transform hover:-translate-y-0.5"
                 title="Hacer pedido online en Uber Eats"
               >
                 <ShoppingBag className="w-3.5 h-3.5" />
@@ -102,10 +98,33 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdvisor }) => {
               >
                 <MessageCircle className="w-4 h-4" />
               </a>
+
+              {/* Admin Panel User Icon (Gold / Color of the page) */}
+              {onOpenAdmin && (
+                <button
+                  onClick={onOpenAdmin}
+                  className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#29151C] border border-[#B79A68]/40 text-[#B79A68] hover:text-[#FCFAF6] hover:border-[#B79A68] hover:bg-[#B79A68]/20 transition-all duration-200"
+                  title="Panel de Administración (Modificar Precios, Fotos y Productos)"
+                  aria-label="Ingresar al Panel de Administración"
+                >
+                  <User className="w-4 h-4" />
+                </button>
+              )}
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Actions & Menu Button */}
             <div className="flex items-center gap-2 md:hidden">
+              {onOpenAdmin && (
+                <button
+                  onClick={onOpenAdmin}
+                  className="p-1.5 rounded-full text-[#B79A68] hover:text-[#FCFAF6] border border-[#B79A68]/40 bg-[#29151C]"
+                  title="Panel de Administración"
+                  aria-label="Abrir panel de administración"
+                >
+                  <User className="w-4 h-4" />
+                </button>
+              )}
+
               <a
                 href={BUSINESS_CONFIG.uberEatsUrl}
                 target="_blank"
@@ -148,12 +167,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdvisor }) => {
         >
           <div>
             <div className="flex items-center justify-between pb-6 border-b border-[#F4EFE5]/10">
-              <div className="flex items-center gap-2">
-                <Wine className="w-5 h-5 text-[#B79A68]" />
-                <span className="font-editorial text-xl font-bold tracking-widest text-[#FCFAF6]">
-                  VINARTE
-                </span>
-              </div>
+              <img
+                src="/vinarte-logo.png"
+                alt="Vinarte Vinoteca"
+                className="h-8 w-auto object-contain"
+              />
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="p-2 text-[#F4EFE5]/70 hover:text-[#B79A68]"
@@ -163,13 +181,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdvisor }) => {
               </button>
             </div>
 
-            <nav className="flex flex-col gap-4 mt-6">
+            <nav className="flex flex-col gap-3 mt-6">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="font-editorial text-2xl text-[#F4EFE5] hover:text-[#B79A68] transition-colors py-2 border-b border-white/5"
+                  className="font-editorial text-xl text-[#F4EFE5] hover:text-[#B79A68] transition-colors py-2 border-b border-white/5"
                 >
                   {link.label}
                 </a>
@@ -180,9 +198,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAdvisor }) => {
                     setMobileMenuOpen(false);
                     onOpenAdvisor();
                   }}
-                  className="text-left font-editorial text-xl text-[#B79A68] hover:text-[#FCFAF6] transition-colors py-2"
+                  className="text-left font-editorial text-lg text-[#B79A68] hover:text-[#FCFAF6] transition-colors py-2"
                 >
                   ✨ Asesor de Maridaje & Vinos
+                </button>
+              )}
+              {onOpenAdmin && (
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenAdmin();
+                  }}
+                  className="text-left font-editorial text-lg text-[#B79A68] hover:text-[#FCFAF6] transition-colors py-2 flex items-center gap-2 border-t border-white/10 mt-2"
+                >
+                  <User className="w-4 h-4 text-[#B79A68]" />
+                  <span>Panel de Administración</span>
                 </button>
               )}
             </nav>

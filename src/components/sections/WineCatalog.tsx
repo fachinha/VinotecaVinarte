@@ -7,9 +7,14 @@ import { getWineWhatsAppUrl, BUSINESS_CONFIG } from '../../data/config';
 interface WineCatalogProps {
   onSelectWine: (wine: Wine) => void;
   selectedCategoryFromParent?: WineCategory;
+  wines?: Wine[];
 }
 
-export const WineCatalog: React.FC<WineCatalogProps> = ({ onSelectWine, selectedCategoryFromParent }) => {
+export const WineCatalog: React.FC<WineCatalogProps> = ({
+  onSelectWine,
+  selectedCategoryFromParent,
+  wines = DEMO_WINES,
+}) => {
   const [selectedCategory, setSelectedCategory] = useState<WineCategory>(selectedCategoryFromParent || 'todos');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedProvince, setSelectedProvince] = useState<string>('todas');
@@ -47,7 +52,7 @@ export const WineCatalog: React.FC<WineCatalogProps> = ({ onSelectWine, selected
 
   // Filtered wines
   const filteredWines = useMemo(() => {
-    return DEMO_WINES.filter((wine) => {
+    return wines.filter((wine) => {
       // Category filter
       if (selectedCategory === 'tintos' && wine.category !== 'tintos') return false;
       if (selectedCategory === 'blancos' && wine.category !== 'blancos') return false;
@@ -73,7 +78,7 @@ export const WineCatalog: React.FC<WineCatalogProps> = ({ onSelectWine, selected
 
       return true;
     });
-  }, [selectedCategory, selectedProvince, searchQuery]);
+  }, [selectedCategory, selectedProvince, searchQuery, wines]);
 
   const handleResetFilters = () => {
     setSelectedCategory('todos');

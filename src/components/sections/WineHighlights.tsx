@@ -7,10 +7,15 @@ import { getWineWhatsAppUrl, BUSINESS_CONFIG } from '../../data/config';
 interface WineHighlightsProps {
   onSelectWine: (wine: WineType) => void;
   onOpenAdvisor?: () => void;
+  wines?: WineType[];
 }
 
-export const WineHighlights: React.FC<WineHighlightsProps> = ({ onSelectWine, onOpenAdvisor }) => {
-  const featuredWines = DEMO_WINES.filter((w) => w.isFeatured).slice(0, 4);
+export const WineHighlights: React.FC<WineHighlightsProps> = ({
+  onSelectWine,
+  onOpenAdvisor,
+  wines = DEMO_WINES,
+}) => {
+  const featuredWines = wines.filter((w) => w.isFeatured).slice(0, 4);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 

@@ -2,8 +2,8 @@ import type { BusinessConfig } from '../types';
 
 export const BUSINESS_CONFIG: BusinessConfig = {
   name: 'Vinarte Vinoteca',
-  tagline: 'Vinos de autor, catas y experiencias en Bariloche',
-  slogan: 'Hay vinos que se descubren. Y momentos que se recuerdan.',
+  tagline: 'El arte del vino en cada copa!',
+  slogan: 'Tenemos el mejor vino del mundo, EL QUE TE GUSTA A VOS!!!',
   address: 'Morales 438',
   city: 'San Carlos de Bariloche',
   province: 'Río Negro',

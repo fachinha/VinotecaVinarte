@@ -1,4 +1,4 @@
-import { Wine, MapPin, MessageCircle, ShoppingBag, ShieldCheck, Star } from 'lucide-react';
+import { MapPin, MessageCircle, ShoppingBag, ShieldCheck, Star } from 'lucide-react';
 import { InstagramIcon } from '../common/InstagramIcon';
 import { BUSINESS_CONFIG, SISTER_STORES } from '../../data/config';
 
@@ -14,18 +14,16 @@ export const Footer: React.FC = () => {
           {/* Brand Info (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full border border-[#B79A68]/40 bg-[#29151C] flex items-center justify-center">
-                <Wine className="w-5 h-5 text-[#B79A68]" />
-              </div>
-              <div>
-                <span className="font-editorial text-2xl tracking-[0.2em] font-semibold text-[#FCFAF6]">
-                  VINARTE
-                </span>
-                <span className="text-[9px] uppercase tracking-[0.28em] text-[#B79A68] block">
-                  Vinoteca • Bariloche
-                </span>
-              </div>
+              <img
+                src="/vinarte-logo.png"
+                alt="Vinarte Vinoteca"
+                className="h-10 w-auto object-contain"
+              />
             </div>
+
+            <p className="text-xs text-[#B79A68] italic font-editorial tracking-wide">
+              “{BUSINESS_CONFIG.slogan}”
+            </p>
 
             <p className="text-xs sm:text-sm text-[#A3988F] leading-relaxed max-w-sm">
               El vino como experiencia, descubrimiento y cultura. Selección cuidada de etiquetas patagónicas y nacionales en San Carlos de Bariloche.
@@ -150,6 +148,7 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-xs text-[#A3988F]">
               <li><a href="#inicio" className="hover:text-[#FCFAF6] transition-colors">Inicio</a></li>
+              <li><a href="#nosotros" className="hover:text-[#FCFAF6] transition-colors">Sobre Nosotros</a></li>
               <li><a href="#catalogo" className="hover:text-[#FCFAF6] transition-colors">Catálogo de Vinos</a></li>
               <li><a href="#destacados" className="hover:text-[#FCFAF6] transition-colors">Vinos Destacados</a></li>
               <li><a href="#ubicacion" className="hover:text-[#FCFAF6] transition-colors">Encontranos</a></li>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, ShoppingBag, Sparkles, MapPin, Compass } from 'lucide-react';
+import { ArrowDown, ShoppingBag, Sparkles, MapPin, Compass, Wine } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../../data/config';
 
 interface HeroProps {
@@ -31,6 +31,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAdvisor }) => {
 
       {/* Content Container */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+        {/* Eyebrow / Tagline */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#B79A68]/30 bg-[#29151C]/70 text-[#B79A68] text-xs uppercase tracking-[0.22em] font-medium mb-6">
+          <Wine className="w-3.5 h-3.5" />
+          <span>El arte del vino en cada copa!</span>
+        </div>
+
         {/* Headline Editorial */}
         <h1 className="font-editorial text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#FCFAF6] tracking-tight leading-[1.08] max-w-4xl">
           Hay vinos que se <span className="italic font-light text-[#B79A68]">descubren</span>.
@@ -38,10 +44,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAdvisor }) => {
           Y momentos que se <span className="italic font-light">recuerdan</span>.
         </h1>
 
+        {/* Slogan */}
+        <p className="mt-6 text-lg sm:text-2xl text-[#B79A68] font-editorial italic tracking-wide max-w-2xl">
+          “Tenemos el mejor vino del mundo, ¡EL QUE TE GUSTA A VOS!”
+        </p>
+
         {/* Complementary Text */}
-        <p className="mt-6 text-base sm:text-lg md:text-xl text-[#F4EFE5]/80 max-w-2xl font-light leading-relaxed">
-          Un lugar para explorar nuevos sabores, encontrar tus favoritos y disfrutar el vino a tu manera.
-          Curaduría exclusiva en el corazón de la Patagonia.
+        <p className="mt-3 text-sm sm:text-base text-[#F4EFE5]/80 max-w-2xl font-light leading-relaxed">
+          Un espacio en Morales 438 para explorar nuevos sabores, encontrar tus favoritos y disfrutar el vino a tu manera. Curaduría exclusiva en el corazón de Bariloche.
         </p>
 
         {/* Buttons / CTAs */}

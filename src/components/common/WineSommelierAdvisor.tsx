@@ -8,6 +8,7 @@ interface WineSommelierAdvisorProps {
   isOpen: boolean;
   onClose: () => void;
   onSelectWine: (wine: Wine) => void;
+  wines?: Wine[];
 }
 
 type DiningOption = 'carnes' | 'pescados' | 'pastas' | 'picada' | 'celebrar';
@@ -16,6 +17,7 @@ export const WineSommelierAdvisor: React.FC<WineSommelierAdvisorProps> = ({
   isOpen,
   onClose,
   onSelectWine,
+  wines = DEMO_WINES,
 }) => {
   const [selectedDining, setSelectedDining] = useState<DiningOption>('carnes');
 
@@ -58,17 +60,17 @@ export const WineSommelierAdvisor: React.FC<WineSommelierAdvisorProps> = ({
   const getMatchedWines = (): Wine[] => {
     switch (selectedDining) {
       case 'carnes':
-        return DEMO_WINES.filter((w) => w.varietal.includes('Malbec') || w.varietal.includes('Cabernet'));
+        return wines.filter((w) => w.varietal.includes('Malbec') || w.varietal.includes('Cabernet'));
       case 'pescados':
-        return DEMO_WINES.filter((w) => w.varietal.includes('Chardonnay') || w.varietal.includes('Torrontés'));
+        return wines.filter((w) => w.varietal.includes('Chardonnay') || w.varietal.includes('Torrontés'));
       case 'pastas':
-        return DEMO_WINES.filter((w) => w.varietal.includes('Pinot') || w.varietal.includes('Semillón'));
+        return wines.filter((w) => w.varietal.includes('Pinot') || w.varietal.includes('Semillón'));
       case 'picada':
-        return DEMO_WINES.filter((w) => w.category === 'rosados' || w.varietal.includes('Pinot'));
+        return wines.filter((w) => w.category === 'rosados' || w.varietal.includes('Pinot'));
       case 'celebrar':
-        return DEMO_WINES.filter((w) => w.category === 'espumantes' || w.name.includes('Ícono'));
+        return wines.filter((w) => w.category === 'espumantes' || w.name.includes('Ícono'));
       default:
-        return DEMO_WINES.slice(0, 2);
+        return wines.slice(0, 2);
     }
   };
 
