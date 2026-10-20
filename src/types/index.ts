@@ -1,4 +1,4 @@
-export type WineCategory = 'todos' | 'tintos' | 'blancos' | 'rosados' | 'espumantes' | 'patagonia' | 'regalo';
+export type WineCategory = 'todos' | 'tintos' | 'blancos' | 'rosados' | 'espumantes' | 'estuches' | 'patagonia';
 
 export type OccasionTag = 'compartir' | 'regalar' | 'descubrir' | 'especial';
 
@@ -7,9 +7,9 @@ export interface Wine {
   name: string;
   winery: string; // Bodega
   varietal: string; // Ej: Malbec, Pinot Noir, Cabernet Franc
-  category: 'tintos' | 'blancos' | 'rosados' | 'espumantes';
+  category: 'tintos' | 'blancos' | 'rosados' | 'espumantes' | 'estuches';
   region: string; // Ej: Alto Valle de Río Negro, San Patricio del Chañar, Valle de Uco
-  province: 'Río Negro' | 'Neuquén' | 'Mendoza' | 'Salta' | 'San Juan';
+  province: 'Río Negro' | 'Neuquén' | 'Mendoza' | 'Salta' | 'San Juan' | string;
   vintage?: string; // Añada (ej: 2021)
   tastingNotes: {
     aroma: string;

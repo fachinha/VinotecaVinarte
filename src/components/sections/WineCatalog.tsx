@@ -45,10 +45,9 @@ export const WineCatalog: React.FC<WineCatalogProps> = ({
     { id: 'blancos', label: 'Blancos' },
     { id: 'rosados', label: 'Rosados' },
     { id: 'espumantes', label: 'Espumantes' },
+    { id: 'estuches', label: 'Estuches & Colección' },
     { id: 'patagonia', label: 'Terruño Patagónico' },
-    { id: 'regalo', label: 'Para Regalar' },
   ];
-
 
   // Filtered wines
   const filteredWines = useMemo(() => {
@@ -58,8 +57,8 @@ export const WineCatalog: React.FC<WineCatalogProps> = ({
       if (selectedCategory === 'blancos' && wine.category !== 'blancos') return false;
       if (selectedCategory === 'rosados' && wine.category !== 'rosados') return false;
       if (selectedCategory === 'espumantes' && wine.category !== 'espumantes') return false;
+      if (selectedCategory === 'estuches' && wine.category !== 'estuches') return false;
       if (selectedCategory === 'patagonia' && !wine.isPatagonian) return false;
-      if (selectedCategory === 'regalo' && !wine.occasions.includes('regalar')) return false;
 
       // Province filter
       if (selectedProvince !== 'todas' && wine.province !== selectedProvince) return false;

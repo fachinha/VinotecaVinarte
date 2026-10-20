@@ -25,10 +25,10 @@ export const App: React.FC = () => {
   // Dynamic catalog state with localStorage persistence
   const [wines, setWines] = useState<Wine[]>(() => {
     try {
-      const stored = localStorage.getItem('vinarte_catalog_data');
+      const stored = localStorage.getItem('vinarte_catalog_data_v2');
       if (stored) {
         const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed) && parsed.length > 0) {
+        if (Array.isArray(parsed) && parsed.length >= 80) {
           return parsed;
         }
       }
@@ -41,7 +41,7 @@ export const App: React.FC = () => {
   const handleUpdateWines = (newWines: Wine[]) => {
     setWines(newWines);
     try {
-      localStorage.setItem('vinarte_catalog_data', JSON.stringify(newWines));
+      localStorage.setItem('vinarte_catalog_data_v2', JSON.stringify(newWines));
     } catch (e) {
       console.error('Error saving catalog to localStorage', e);
     }
@@ -50,7 +50,7 @@ export const App: React.FC = () => {
   const handleResetWines = () => {
     setWines(DEMO_WINES);
     try {
-      localStorage.removeItem('vinarte_catalog_data');
+      localStorage.removeItem('vinarte_catalog_data_v2');
     } catch (e) {
       console.error('Error removing catalog from localStorage', e);
     }
