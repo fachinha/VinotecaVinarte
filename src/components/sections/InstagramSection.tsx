@@ -7,23 +7,27 @@ export const InstagramSection: React.FC = () => {
   const instagramVisuals = [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80',
-      caption: 'Copas preparadas para nuestra cata guiada en Bariloche.',
+      image: '/insta-1.jpg',
+      caption: 'Nuestra cava y estanterías con más de 80 etiquetas exclusivas en Morales 438.',
+      postUrl: 'https://www.instagram.com/p/DAB1B6AvAOX/',
     },
     {
       id: 2,
-      image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=600&q=80',
-      caption: 'Barricas de roble y guarda de añadas seleccionadas.',
+      image: '/insta-2.jpg',
+      caption: 'Copas listas y botellas seleccionadas para catas guiadas sensoriales.',
+      postUrl: 'https://www.instagram.com/p/DY4veKfAaHw/',
     },
     {
       id: 3,
-      image: 'https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80',
-      caption: 'Momentos compartidos alrededor de una gran botella.',
+      image: '/insta-3.jpg',
+      caption: 'Ediciones especiales Don Juan Reserva en caja de madera y estuches de colección.',
+      postUrl: 'https://www.instagram.com/p/DeiFtQqDa_6/',
     },
     {
       id: 4,
-      image: 'https://images.unsplash.com/photo-1558001373-7b93ee48ffa0?auto=format&fit=crop&w=600&q=80',
-      caption: 'Servicio y descorche a la temperatura ideal.',
+      image: '/insta-4.jpg',
+      caption: 'Salón íntimo de degustación y experiencias en San Carlos de Bariloche.',
+      postUrl: 'https://www.instagram.com/vinartevinoteca/',
     },
   ];
 
@@ -61,7 +65,7 @@ export const InstagramSection: React.FC = () => {
           {instagramVisuals.map((post) => (
             <a
               key={post.id}
-              href={BUSINESS_CONFIG.instagramUrl}
+              href={post.postUrl || BUSINESS_CONFIG.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative aspect-square rounded-xl overflow-hidden bg-[#201c1a] border border-white/10 hover:border-[#B79A68]/50 transition-all duration-300 shadow-lg block"
