@@ -91,7 +91,7 @@ export const WineCatalog: React.FC<WineCatalogProps> = ({
           {/* Quick Counter */}
           <div className="flex items-center gap-3">
             <span className="text-xs uppercase tracking-wider text-[#A3988F]">
-              Mostrando <strong className="text-[#B79A68]">{filteredWines.length}</strong> de {DEMO_WINES.length} etiquetas
+              Mostrando <strong className="text-[#B79A68]">{filteredWines.length}</strong> de {wines.length} etiquetas
             </span>
             {(selectedCategory !== 'todos' || selectedProvince !== 'todas' || searchQuery !== '') && (
               <button
