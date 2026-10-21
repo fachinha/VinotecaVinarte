@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import type { Wine, WineCategory } from '../../types';
 import { DEMO_WINES } from '../../data/wines';
 import { Search, Filter, RotateCcw, ShoppingBag, Sparkles, MessageCircle } from 'lucide-react';
@@ -18,26 +18,7 @@ export const WineCatalog: React.FC<WineCatalogProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<WineCategory>(selectedCategoryFromParent || 'todos');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedProvince, setSelectedProvince] = useState<string>('todas');
-  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   const categories: { id: WineCategory; label: string }[] = [
     { id: 'todos', label: 'Todos' },
@@ -192,9 +173,7 @@ export const WineCatalog: React.FC<WineCatalogProps> = ({
               <div
                 key={`${wine.id}-${selectedCategory}-${selectedProvince}-${searchQuery}`}
                 style={{ animationDelay: `${Math.min(index * 110, 850)}ms` }}
-                className={`bg-[#171513] rounded-2xl border border-white/10 overflow-hidden flex flex-col justify-between hover:border-[#B79A68]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#481B28]/30 group hover:-translate-y-1.5 ${
-                  isVisible ? 'wine-appear' : 'opacity-0 translate-y-8'
-                }`}
+                className="bg-[#171513] rounded-2xl border border-white/10 overflow-hidden flex flex-col justify-between hover:border-[#B79A68]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#481B28]/30 group hover:-translate-y-1.5"
               >
                 {/* Large Bottle Showcase Image */}
                 <div

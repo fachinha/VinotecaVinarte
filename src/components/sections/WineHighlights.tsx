@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import type { Wine as WineType } from '../../types';
 import { DEMO_WINES } from '../../data/wines';
 import { Sparkles, ShoppingBag } from 'lucide-react';
@@ -16,26 +16,7 @@ export const WineHighlights: React.FC<WineHighlightsProps> = ({
   wines = DEMO_WINES,
 }) => {
   const featuredWines = wines.filter((w) => w.isFeatured).slice(0, 4);
-  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <section
@@ -49,11 +30,7 @@ export const WineHighlights: React.FC<WineHighlightsProps> = ({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div
-          className={`text-center max-w-3xl mx-auto mb-10 transition-all duration-700 ease-out ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-          }`}
-        >
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-[#B79A68] font-semibold mb-3">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Selección del Sommelier</span>
@@ -65,11 +42,7 @@ export const WineHighlights: React.FC<WineHighlightsProps> = ({
 
         {/* Sommelier Virtual Feature Card (al principio de destacados) */}
         {onOpenAdvisor && (
-          <div
-            className={`mb-12 bg-gradient-to-r from-[#29151C] via-[#201c1a] to-[#29151C] p-7 sm:p-9 rounded-3xl border border-[#B79A68]/40 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden transition-all duration-700 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-          >
+          <div className="mb-12 bg-gradient-to-r from-[#29151C] via-[#201c1a] to-[#29151C] p-7 sm:p-9 rounded-3xl border border-[#B79A68]/40 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
             <div className="max-w-xl text-center md:text-left">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-[#B79A68] font-semibold mb-2">
                 <Sparkles className="w-3.5 h-3.5" />
@@ -99,9 +72,7 @@ export const WineHighlights: React.FC<WineHighlightsProps> = ({
             <div
               key={wine.id}
               style={{ animationDelay: `${index * 200}ms` }}
-              className={`card-luxury rounded-2xl overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1.5 ${
-                isVisible ? 'wine-appear' : 'opacity-0 translate-y-8'
-              }`}
+              className="card-luxury rounded-2xl overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1.5"
             >
               {/* Bottle Showcase Image */}
               <div
