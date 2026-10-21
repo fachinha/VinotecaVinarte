@@ -1,3 +1,4 @@
+/* Vinarte Vinoteca Official - Live */
 import React, { useState } from 'react';
 import type { Wine } from './types';
 import { DEMO_WINES } from './data/wines';
