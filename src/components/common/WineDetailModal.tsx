@@ -147,7 +147,7 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({ wine, onClose 
               <div className="flex items-start gap-2 bg-[#29151C]/40 p-3 rounded-lg border border-[#B79A68]/20 text-[11px] text-[#A3988F] mb-6">
                 <Info className="w-4 h-4 text-[#B79A68] flex-shrink-0 mt-0.5" />
                 <span>
-                  Etiqueta de referencia curada para demostración. Para confirmar disponibilidad actual en el local de Morales 438, consultá directo a nuestro sommelier.
+                  Etiquetas y precios actualizados directamente de nuestra tienda oficial en Uber Eats y local en Morales 438, Bariloche.
                 </span>
               </div>
             </div>

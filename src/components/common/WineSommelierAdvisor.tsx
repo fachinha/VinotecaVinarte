@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { X, Sparkles, Utensils, Gift, PartyPopper, Check, MessageCircle, ArrowRight } from 'lucide-react';
+import { X, Sparkles, Utensils, Gift, PartyPopper, Check, ShoppingBag, ArrowRight } from 'lucide-react';
 import { DEMO_WINES } from '../../data/wines';
 import type { Wine } from '../../types';
-import { getWineWhatsAppUrl, BUSINESS_CONFIG } from '../../data/config';
+import { BUSINESS_CONFIG } from '../../data/config';
 
 interface WineSommelierAdvisorProps {
   isOpen: boolean;
@@ -60,17 +60,27 @@ export const WineSommelierAdvisor: React.FC<WineSommelierAdvisorProps> = ({
   const getMatchedWines = (): Wine[] => {
     switch (selectedDining) {
       case 'carnes':
-        return wines.filter((w) => w.varietal.includes('Malbec') || w.varietal.includes('Cabernet'));
+        return wines
+          .filter((w) => w.category === 'tintos' && (w.varietal.includes('Malbec') || w.varietal.includes('Cabernet') || w.varietal.includes('Gran Corte')))
+          .slice(0, 4);
       case 'pescados':
-        return wines.filter((w) => w.varietal.includes('Chardonnay') || w.varietal.includes('Torrontés'));
+        return wines
+          .filter((w) => w.category === 'blancos' || (w.category === 'rosados' && w.varietal.includes('Sauvignon')))
+          .slice(0, 4);
       case 'pastas':
-        return wines.filter((w) => w.varietal.includes('Pinot') || w.varietal.includes('Semillón'));
+        return wines
+          .filter((w) => w.category === 'tintos' && (w.varietal.includes('Pinot') || w.varietal.includes('Blend') || w.varietal.includes('Cabernet Franc') || w.varietal.includes('Bonarda')))
+          .slice(0, 4);
       case 'picada':
-        return wines.filter((w) => w.category === 'rosados' || w.varietal.includes('Pinot'));
+        return wines
+          .filter((w) => w.category === 'rosados' || (w.category === 'tintos' && w.varietal.includes('Pinot')))
+          .slice(0, 4);
       case 'celebrar':
-        return wines.filter((w) => w.category === 'espumantes' || w.name.includes('Ícono'));
+        return wines
+          .filter((w) => w.category === 'espumantes' || w.category === 'estuches')
+          .slice(0, 4);
       default:
-        return wines.slice(0, 2);
+        return wines.slice(0, 4);
     }
   };
 
@@ -159,7 +169,14 @@ export const WineSommelierAdvisor: React.FC<WineSommelierAdvisorProps> = ({
                       {wine.winery} • {wine.region}
                     </span>
                     <h4 className="font-editorial text-lg text-[#FCFAF6] font-semibold">{wine.name}</h4>
-                    <p className="text-xs text-[#A3988F]">{wine.varietal} {wine.vintage && `(${wine.vintage})`}</p>
+                    <div className="flex items-center gap-2 mt-0.5">
+                      <p className="text-xs text-[#A3988F]">{wine.varietal} {wine.vintage && `(${wine.vintage})`}</p>
+                      {wine.priceDisplay && (
+                        <span className="text-xs font-semibold text-[#B79A68]">
+                          • {wine.priceDisplay}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
 
@@ -175,13 +192,14 @@ export const WineSommelierAdvisor: React.FC<WineSommelierAdvisorProps> = ({
                   </button>
 
                   <a
-                    href={getWineWhatsAppUrl(wine.name, wine.winery)}
+                    href={BUSINESS_CONFIG.uberEatsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 bg-[#25D366] hover:bg-[#22c35e] text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors"
+                    className="flex items-center gap-1.5 bg-[#B79A68] hover:bg-[#c9af7e] text-[#171513] text-xs font-semibold px-4 py-2 rounded-full transition-all shadow-md hover:-translate-y-0.5"
+                    title={`Pedir ${wine.name} en Uber Eats`}
                   >
-                    <MessageCircle className="w-3.5 h-3.5" />
-                    <span>Consultar</span>
+                    <ShoppingBag className="w-3.5 h-3.5" />
+                    <span>Pedir</span>
                   </a>
                 </div>
               </div>
