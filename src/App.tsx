@@ -58,7 +58,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#171513] text-[#FCFAF6] font-sans selection:bg-[#481B28] selection:text-[#F4EFE5] relative">
+    <div className="min-h-screen bg-[#FAF7F2] text-[#261C20] font-sans selection:bg-[#E96615]/20 selection:text-[#E96615] relative">
       {/* Navigation */}
       <Navbar
         onOpenAdvisor={() => setIsAdvisorOpen(true)}

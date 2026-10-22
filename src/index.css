@@ -1,29 +1,53 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bordeaux-950: #1b0910;
-  --color-bordeaux-900: #29151C;
-  --color-bordeaux-800: #381923;
-  --color-bordeaux-700: #481B28;
-  --color-bordeaux-600: #5c2233;
-  --color-bordeaux-500: #742d42;
+  /* Logo Official Colors */
+  --color-vinarte-orange: #E96615;
+  --color-vinarte-orange-hover: #D4550C;
+  --color-vinarte-orange-light: #FFF4ED;
+  --color-vinarte-orange-border: #FCD8BF;
+  --color-vinarte-amber: #EB7D10;
 
-  --color-night: #171513;
-  --color-night-darker: #0e0d0c;
-  --color-night-card: #201c1a;
-  --color-night-border: #2d2925;
+  --color-vinarte-bordeaux: #46042E;
+  --color-vinarte-ruby: #BB0544;
+  --color-vinarte-sand: #5D5246;
 
-  --color-gold-300: #dbcca4;
-  --color-gold-400: #c9af7e;
-  --color-gold-500: #B79A68;
-  --color-gold-600: #9e8253;
-  --color-gold-700: #7f663c;
+  /* Light Theme Backgrounds & Surfaces */
+  --color-warm-bg: #FAF7F2;
+  --color-warm-card: #FFFFFF;
+  --color-warm-section: #F4EFE6;
+  --color-warm-border: #EAE0D3;
+  --color-warm-border-subtle: #F0E8DD;
 
-  --color-cream: #F4EFE5;
-  --color-cream-muted: #e6dfd1;
-  --color-warm-white: #FCFAF6;
-  --color-warm-gray: #8C827A;
-  --color-warm-muted: #A3988F;
+  /* Typography Colors */
+  --color-text-main: #261C20;
+  --color-text-muted: #6E6259;
+  --color-text-subtle: #96887D;
+
+  /* Legacy compatibility tokens mapped to new warm palette */
+  --color-bordeaux-950: #290A1A;
+  --color-bordeaux-900: #46042E;
+  --color-bordeaux-800: #5C153E;
+  --color-bordeaux-700: #7A2454;
+  --color-bordeaux-600: #9B1D53;
+  --color-bordeaux-500: #BB0544;
+
+  --color-night: #FAF7F2;
+  --color-night-darker: #F4EFE6;
+  --color-night-card: #FFFFFF;
+  --color-night-border: #EAE0D3;
+
+  --color-gold-300: #FCD8BF;
+  --color-gold-400: #F38C45;
+  --color-gold-500: #E96615;
+  --color-gold-600: #D4550C;
+  --color-gold-700: #B84405;
+
+  --color-cream: #FAF7F2;
+  --color-cream-muted: #F4EFE6;
+  --color-warm-white: #FFFFFF;
+  --color-warm-gray: #6E6259;
+  --color-warm-muted: #6E6259;
 
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
@@ -36,8 +60,8 @@ html {
 
 body {
   margin: 0;
-  background-color: #171513;
-  color: #FCFAF6;
+  background-color: #FAF7F2;
+  color: #261C20;
 }
 
 #root {
@@ -54,14 +78,14 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #171513;
+  background: #FAF7F2;
 }
 ::-webkit-scrollbar-thumb {
-  background: #381923;
+  background: #EAE0D3;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #B79A68;
+  background: #E96615;
 }
 
 /* Typography refinements */
@@ -71,46 +95,53 @@ body {
 
 /* Glass backdrop utilities */
 .glass-panel {
-  background: rgba(23, 21, 19, 0.75);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(244, 239, 229, 0.08);
+  border: 1px solid rgba(234, 224, 211, 0.9);
 }
 
 .glass-bordeaux {
-  background: rgba(41, 21, 28, 0.85);
+  background: rgba(250, 247, 242, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(183, 154, 104, 0.2);
+  border-bottom: 1px solid rgba(234, 224, 211, 0.9);
 }
 
 .card-luxury {
-  background: linear-gradient(145deg, rgba(32, 28, 26, 0.9) 0%, rgba(20, 18, 17, 0.96) 100%);
-  border: 1px solid rgba(183, 154, 104, 0.15);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #FFFFFF;
+  border: 1px solid #EAE0D3;
+  box-shadow: 0 4px 20px -2px rgba(93, 82, 70, 0.05);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-luxury:hover {
-  border-color: rgba(183, 154, 104, 0.45);
-  box-shadow: 0 20px 40px -15px rgba(72, 27, 40, 0.4);
+  border-color: rgba(233, 102, 21, 0.35);
+  box-shadow: 0 16px 32px -8px rgba(233, 102, 21, 0.12), 0 4px 12px -2px rgba(70, 4, 46, 0.06);
 }
 
-/* Gold gradient text */
+/* Orange gradient text */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #FCFAF6 0%, #dbcca4 40%, #B79A68 100%);
+  background: linear-gradient(135deg, #46042E 0%, #BB0544 40%, #E96615 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-orange-gradient {
+  background: linear-gradient(135deg, #46042E 0%, #E96615 60%, #EB7D10 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-wine-gradient {
-  background: linear-gradient(135deg, #F4EFE5 0%, #c9af7e 50%, #8C827A 100%);
+  background: linear-gradient(135deg, #261C20 0%, #46042E 60%, #6E6259 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 /* Noise overlay */
 .bg-noise {
-  background-image: radial-gradient(rgba(183, 154, 104, 0.04) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(233, 102, 21, 0.05) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -118,10 +149,7 @@ body {
 @keyframes wineAppear {
   0% {
     opacity: 0;
-    transform: translateY(48px) scale(0.94);
-  }
-  60% {
-    opacity: 0.85;
+    transform: translateY(32px) scale(0.96);
   }
   100% {
     opacity: 1;
@@ -131,7 +159,7 @@ body {
 
 .wine-appear {
   opacity: 0;
-  animation: wineAppear 1.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: wineAppear 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   will-change: transform, opacity;
 }
 
