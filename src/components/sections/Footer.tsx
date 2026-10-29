@@ -221,9 +221,17 @@ export const Footer: React.FC = () => {
         {/* Bottom Credits & Copyright */}
         <div className="pt-8 border-t border-[#EAE0D3] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#6E6259]">
           <p>© {CURRENT_YEAR} {BUSINESS_CONFIG.name}. Todos los derechos reservados. San Carlos de Bariloche, Patagonia Argentina.</p>
-          <p className="flex items-center gap-1">
-            <span>Hecho con dedicación para los amantes del vino</span>
-          </p>
+          <div className="flex items-center gap-1.5">
+            <span>Desarrollo por</span>
+            <a
+              href="https://kiurcode.pages.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-[#E96615] hover:text-[#D4550C] hover:underline transition-colors"
+            >
+              Kiur Code
+            </a>
+          </div>
         </div>
       </div>
     </footer>
